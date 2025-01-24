@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
         $table->enum('status', ['actif', 'inactif'])->default('actif');
         $table->timestamps();
 
-        // Clés étrangères
         $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
     });

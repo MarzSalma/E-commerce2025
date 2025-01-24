@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Shop;
+use App\Models\Category;
+use App\Models\Product;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,11 +29,21 @@ Route::get('/Gerer_Boutique', [ShopController::class, 'index'])->name('gerer.bou
 //affiche produits
 Route::get('/boutique/{id}', [ShopController::class, 'showProducts'])->name('boutique.products');
 
+//CRUD Produit
+//Create
+Route::post('/Ajouter_Produit', [ShopController::class, 'storeProduct'])->name('products.store'); 
+Route::get('/Ajouter_Produit', [ShopController::class, 'create'])->name('products.create');
+
+//CRUD Cat
+Route::get('/Ajouter_Categorie', [ShopController::class, 'createCategory'])->name('categories.create');
+Route::post('/Ajouter_Categorie', [ShopController::class, 'storeCategory'])->name('categories.store');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 
-    
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

@@ -309,36 +309,32 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="../generate/theme.html" class="nav-link">
-                  <i class="nav-icon bi bi-palette"></i>
-                  <p>Theme Generate</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
                   <p>
-                    Widgets
+                    Boutique
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../widgets/small-box.html" class="nav-link">
+                    <a href="/Ajouter_Boutique" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Small Box</p>
+                      <p>Ajouter Boutique</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../widgets/info-box.html" class="nav-link">
+                    <a href="{{ route('shop.show') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>info Box</p>
+                      <p>Affiche Boutique</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../widgets/cards.html" class="nav-link">
+                  <a href="{{ route('gerer.boutique') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Cards</p>
+                      <p>Gérer mes Boutiques</p>
+                  </a>
+
                     </a>
                   </li>
                 </ul>
@@ -442,11 +438,11 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Modifer Boutique</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Ajout Catégorie</h3></div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Modifier Boutique</li>
+                  <li class="breadcrumb-item active" aria-current="page">Ajout Catégorie</li>
                 </ol>
               </div>
             </div>
@@ -455,164 +451,115 @@
           <!--end::Container-->
         </div>
         <!--end::App Content Header-->
-        <div class="col-md-8">
-        <!--begin::Form-->
-       <!--begin::Form-->
-<form action="/Modifier_Boutique/{{ $shop->id }}" 
-      method="POST" 
-      class="needs-validation" 
-      novalidate>
-  @csrf
-  @method('PUT')
-          <div class="card card-success card-outline mb-4">
-            <!--begin::Header-->
-            <div class="card-header">
-              <div class="card-title">Modifier une boutique</div>
-            </div>
-            <!--end::Header-->
-            <!--begin::Body-->
-            <div class="card-body">
-  <!-- Nom de la boutique -->
-  <div class="mb-3">
-    <label for="name" class="form-label">Nom de la boutique</label>
-    <input
-      type="text"
-      class="form-control"
-      id="name"
-      name="name"
-      placeholder="Nom de la boutique"
-      value="{{ old('name', $shop->name) }}"
-      required
-    />
-    <div class="invalid-feedback">Le nom de la boutique est obligatoire et doit être unique par vendeur.</div>
-  </div>
-
-  <!-- Description de la boutique -->
-  <div class="mb-3">
-    <label for="description" class="form-label">Description de la boutique</label>
-    <textarea
-      class="form-control"
-      id="description"
-      name="description"
-      placeholder="Description de la boutique"
-    >{{ old('description', $shop->description) }}</textarea>
-  </div>
-
-  <!-- Logo de la boutique -->
-  <div class="mb-3">
-    <label for="logo" class="form-label">Logo de la boutique</label>
-    <input
-      type="text"
-      class="form-control"
-      id="logo"
-      name="logo"
-      placeholder="Chemin d'accès au logo"
-      value="{{ old('logo', $shop->logo) }}"
-    />
-  </div>
-
-  <!-- Adresse de la boutique -->
-  <div class="mb-3">
-    <label for="address" class="form-label">Adresse de la boutique</label>
-    <input
-      type="text"
-      class="form-control"
-      id="address"
-      name="address"
-      placeholder="Adresse de la boutique"
-      value="{{ old('address', $shop->address) }}"
-      required
-    />
-    <div class="invalid-feedback">L'adresse de la boutique est obligatoire.</div>
-  </div>
-
-  <!-- Email de contact -->
-  <div class="mb-3">
-    <label for="email" class="form-label">Email de contact</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      placeholder="Email de contact"
-      value="{{ old('email', $shop->email) }}"
-      required
-    />
-    <div class="invalid-feedback">Veuillez fournir une adresse email valide.</div>
-  </div>
-
-  <!-- Téléphone de contact -->
-  <div class="mb-3">
-    <label for="phone" class="form-label">Téléphone de contact</label>
-    <input
-      type="text"
-      class="form-control"
-      id="phone"
-      name="phone"
-      placeholder="Téléphone de contact"
-      value="{{ old('phone', $shop->phone) }}"
-    />
-  </div>
-
-  <!-- Statut de la boutique -->
-  <div class="mb-3">
-    <label for="status" class="form-label">Statut de la boutique</label>
-    <select class="form-select" id="status" name="status" required>
-      <option value="">Sélectionnez le statut</option>
-      <option value="actif" {{ old('status', $shop->status) == 'actif' ? 'selected' : '' }}>Actif</option>
-      <option value="inactif" {{ old('status', $shop->status) == 'inactif' ? 'selected' : '' }}>Inactif</option>
-    </select>
-    <div class="invalid-feedback">Veuillez sélectionner un statut pour la boutique.</div>
-  </div>
-
-  <!-- Vendeur associé -->
-  <div class="mb-3">
-    <label for="seller_id" class="form-label">Vendeur associé</label>
-    <input
-      type="text"
-      class="form-control"
-      id="seller_id"
-      name="seller_id"
-      placeholder="Identifiant du vendeur associé"
-      value="{{ old('seller_id', $shop->seller_id) }}"
-      required
-    />
-    <div class="invalid-feedback">Veuillez fournir l'identifiant du vendeur associé.</div>
-  </div>
-</div>
-<!--end::Body-->
-
-<!--begin::Footer-->
-<div class="card-footer">
-  <button type="submit" class="btn btn-success">Modifier</button>
-</div>
-
         <!--begin::App Content-->
         <div class="app-content">
-          <!--begin::Container-->
-          <div class="container-fluid">
-            <!--begin::Row-->
-            <div class="row g-4">
-              <!--begin::Col-->
-              <div class="col-12">
-                <div class="callout callout-info">
-                  For detailed documentation of Form visit
-                  <a
-                    href="https://getbootstrap.com/docs/5.3/forms/overview/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="callout-link"
-                  >
-                    Bootstrap Form
-                  </a>
-                </div>
-              </div>
-              <!--end::Col-->
-            </div>
-            <!--end::Row-->
+           <!--begin::Container-->
+<div class="container-fluid">
+  <!--begin::Row-->
+  <div class="row g-4">
+    <!--begin::Col-->
+    <div class="col-md-8">
+      <!--begin::Form-->
+      <form action="/Ajouter_Categorie" method="POST" class="needs-validation" novalidate>
+        @csrf
+        <div class="card card-success card-outline mb-4">
+          <!--begin::Header-->
+          <div class="card-header">
+            <div class="card-title">Ajouter une catégorie</div>
           </div>
-          <!--end::Container-->
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div class="card-body">
+            <!-- Nom de la catégorie -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom de la catégorie</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Nom de la catégorie"
+                required
+              />
+              <div class="invalid-feedback">Le nom de la catégorie est obligatoire.</div>
+            </div>
+
+            <!-- Description de la catégorie -->
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                placeholder="Description de la catégorie"
+              ></textarea>
+            </div>
+
+            <!-- Statut de la catégorie -->
+            <div class="mb-3">
+              <label for="status" class="form-label">Statut</label>
+              <select class="form-select" id="status" name="status" required>
+                <option value="actif" selected>Actif</option>
+                <option value="inactif">Inactif</option>
+              </select>
+              <div class="invalid-feedback">Veuillez sélectionner un statut pour la catégorie.</div>
+            </div>
+
+            <!-- Boutique associée -->
+            <div class="mb-3">
+              <label for="shop_id" class="form-label">Boutique associée</label>
+              <select class="form-select" id="shop_id" name="shop_id" required>
+                <option value="">Sélectionnez une boutique</option>
+                @foreach($shops as $shop)
+                  <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                @endforeach
+              </select>
+              <div class="invalid-feedback">Veuillez sélectionner une boutique.</div>
+            </div>
+          </div>
+          <!--end::Body-->
+          <!--begin::Footer-->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-success">Ajouter</button>
+          </div>
+          <!--end::Footer-->
         </div>
+      </form>
+      <!--end::Form-->
+    </div>
+    <!--end::Col-->
+  </div>
+  <!--end::Row-->
+</div>
+<!--end::Container-->
+
+          
+            <script>
+              // Form validation script
+              (() => {
+                'use strict';
+          
+                const forms = document.querySelectorAll('.needs-validation');
+          
+                Array.from(forms).forEach((form) => {
+                  form.addEventListener(
+                    'submit',
+                    (event) => {
+                      if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                      }
+          
+                      form.classList.add('was-validated');
+                    },
+                    false
+                  );
+                });
+              })();
+            </script>
+          </div>
+          
+
         <!--end::App Content-->
       </main>
       <!--end::App Main-->
