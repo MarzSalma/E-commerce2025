@@ -11,6 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //CRUD Boutique
 //Create
 Route::get('/Ajouter_Boutique', function () {
@@ -26,18 +27,28 @@ Route::get('/Modifier_Boutique/{id}', [ShopController::class, 'edit'])->name('sh
 Route::put('/Modifier_Boutique/{id}', [ShopController::class, 'update'])->name('shops.update');
 //Affiche sous forme de box
 Route::get('/Gerer_Boutique', [ShopController::class, 'index'])->name('gerer.boutique');
+
 //affiche produits
 Route::get('/boutique/{id}', [ShopController::class, 'showProducts'])->name('boutique.products');
+
 
 //CRUD Produit
 //Create
 Route::post('/Ajouter_Produit', [ShopController::class, 'storeProduct'])->name('products.store'); 
 Route::get('/Ajouter_Produit', [ShopController::class, 'create'])->name('products.create');
 
+
 //CRUD Cat
+//Create
 Route::get('/Ajouter_Categorie', [ShopController::class, 'createCategory'])->name('categories.create');
 Route::post('/Ajouter_Categorie', [ShopController::class, 'storeCategory'])->name('categories.store');
-
+//Read
+Route::get('/Affiche_Categories', [ShopController::class, 'showCategories'])->name('categories.show');
+//Update
+Route::get('/Modifier_Categories/{id}', [ShopController::class, 'editCat'])->name('categories.edit');
+Route::put('/Modifier_Categories/{id}', [ShopController::class, 'updateCat'])->name('categories.update');
+//Delete
+Route::delete('/categories/{id}', [ShopController::class, 'destroyCategory'])->name('categories.destroy');
 
 
 

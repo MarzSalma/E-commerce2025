@@ -92,8 +92,6 @@ public function update(Request $request, $id)
         return redirect()->back()->with('error', 'Erreur lors de la modification');
     }
 }
-
-
 public function index()
     {
         // Récupérer les boutiques  la base 
@@ -138,12 +136,6 @@ public function index()
             return redirect()->back()->with('error', 'Erreur lors de l\'ajout du produit : ' . $e->getMessage());
         }
     }
-
-
-
-
-
-
     public function showProducts($shopId)
 {
     $shop = Shop::findOrFail($shopId);
@@ -159,11 +151,10 @@ public function create()
 }
 
 
-public function createCategory()
-{
-    $shops = Shop::all();
-    return view('Admin.Ajouter_Categorie', compact('shops'));
-}
+
+
+
+
 
 public function storeCategory(Request $request)
     {
@@ -190,6 +181,79 @@ public function storeCategory(Request $request)
 
             return redirect()->back()->with('error', 'Erreur lors de l\'ajout de la catégorie. Veuillez réessayer plus tard.');
         }
+
+
     }
+    public function createCategory()
+    {
+        $shops = Shop::all();
+         return view('Admin.Ajouter_Categorie', compact('shops'));
+        }
+        public function showCategories()
+        {
+            $categories = Category::with('shop')->get(); // Charge les catégories avec les boutiques associées
+            return view('Admin.Affiche_Categories', compact('categories'));
+        }
+
+        public function editCat($id)
+{
+    $category = Category::findOrFail($id); // Trouver la catégorie par son ID
+    return view('Admin.Modifier_Categories', compact('category'));
+}
+public function updateCat(Request $request, $id)
+{
+    // Valider les données envoyées
+    $request->validate([
+        'name' => 'required|unique:categories,name,' . $id,
+        'description' => 'nullable|string',
+        'status' => 'required|in:actif,inactif',
+    ]);
+
+    // Trouver la catégorie par son ID
+    $category = Category::find($id);
+
+    if (!$category) {
+        return redirect()->route('categories.update')->with('error', 'Catégorie introuvable');
+    }
+
+    // Mettre à jour les informations de la catégorie
+    $category->name = $request->input('name');
+    $category->description = $request->input('description');
+    $category->status = $request->input('status');
+    $category->save();
+
+    // Retourner à la page de l'affichage des catégories avec un message de succès
+    return redirect()->route('categories.show')->with('success', 'Catégorie modifiée avec succès');
+
+}
+
+
+
+
+
+
+public function destroyCategory($id)
+{
+    try {
+        $category = Category::findOrFail($id); // Récupère la catégorie par son ID
+
+        // Vérifie si la catégorie contient des produits
+        if ($category->products()->count() > 0) {
+            return redirect()->route('categories.index')
+                ->with('error', 'Impossible de supprimer cette catégorie car elle contient des produits.');
+        }
+
+        // Supprime la catégorie si elle ne contient aucun produit
+        $category->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Catégorie supprimée avec succès !');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Erreur lors de la suppression : ' . $e->getMessage());
+    }
+}
+
+
+
+
 
 }

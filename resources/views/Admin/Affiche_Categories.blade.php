@@ -6,7 +6,7 @@
     <title>MarketPlace</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="AdminLTE 4 | General Form Elements" />
+    <meta name="title" content="AdminLTE 4 | Simple Tables" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
@@ -74,7 +74,123 @@
               </a>
             </li>
             <!--end::Navbar Search-->
-            
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="assets2/assets/img/user1-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="assets2/assets/img/user8-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="assets2/assets/img/user3-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
             <!--begin::Fullscreen Toggle-->
             <li class="nav-item">
               <a class="nav-link" href="#" data-lte-toggle="fullscreen">
@@ -250,6 +366,7 @@
                   </li>
                 </ul>
               </li>
+           
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
@@ -314,7 +431,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../UI/general.html" class="nav-link active">
+                    <a href="../UI/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>General</p>
                     </a>
@@ -333,7 +450,7 @@
                   </li>
                 </ul>
               </li>
-             
+              
             </ul>
             <!--end::Sidebar Menu-->
           </nav>
@@ -345,172 +462,94 @@
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
-          <!--begin::Container-->
-          <div class="container-fluid">
-            <!--begin::Row-->
-            <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Ajout Produit</h3></div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Ajout Produit</li>
-                </ol>
-              </div>
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Liste des Catégories</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Liste des Catégories</li>
+                        </ol>
+                    </div>
+                </div>
+                <!--end::Row-->
             </div>
-            <!--end::Row-->
-          </div>
-          <!--end::Container-->
+            <!--end::Container-->
         </div>
         <!--end::App Content Header-->
         <!--begin::App Content-->
         <div class="app-content">
-  <!--begin::Container-->
-  <div class="container-fluid">
-    <!--begin::Row-->
-    <div class="row g-4">
-      <!--begin::Col-->
-      <div class="col-md-8">
-        <!--begin::Form-->
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-    @csrf
-    <div class="card card-success card-outline mb-4">
-      <!--begin::Header-->
-      <div class="card-header">
-              <div class="card-title">Ajouter un produit</div>
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--begin::Row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4 border">
+                            <div class="card-header">
+                                <h3 class="card-title">Liste des Catégories</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">ID</th>
+                                            <th>Nom de la Catégorie</th>
+                                            <th>Description</th>
+                                            <th>Boutique</th> <!-- Nouvelle colonne pour la boutique liée -->
+                                            <th>Statut</th>
+                                            <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($categories as $category)
+                                            <tr class="align-middle">
+                                                <td> {{ $loop->iteration }}.</td>
+                                                <td>{{ $category->name }}</td>
+                                                <td>{{ $category->description ?? 'N/A' }}</td>
+                                                <td>{{ $category->shop->name ?? 'N/A' }}</td> <!-- Nom de la boutique associée -->
+                                                <td>
+                                                    <span class="badge text-bg-{{ $category->status == 'actif' ? 'success' : 'danger' }}">
+                                                        {{ ucfirst($category->status) }}
+                                                    </span>
+                                                </td>
+                                                <td> <!-- Colonne des actions -->
+    <div class="d-flex gap-2">
+        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success btn-sm w-70">Modifier</a>
+        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline;" class="flex-grow-1">
+            @csrf
+            @method('DELETE')
+            <button 
+                class="btn btn-danger btn-sm w-70"
+                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')"
+                @if($category->products()->count() > 0) disabled @endif
+            >
+                Supprimer
+            </button>
+        </form>
+    </div>
+</td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!--end::Row-->
             </div>
-            <!--end::Header-->
-             <!--begin::Body-->
-             <div class="card-body">
-        <!-- Nom du produit -->
-        <div class="mb-3">
-            <label for="name" class="form-label">Nom du produit</label>
-            <input
-                type="text"
-                class="form-control"
-                id="name"
-                name="name"
-                placeholder="Nom du produit"
-                required
-            />
-            <div class="invalid-feedback">Le nom du produit est obligatoire.</div>
+            <!--end::Container-->
         </div>
-
-        <!-- Description du produit -->
-        <div class="mb-3">
-            <label for="description" class="form-label">Description du produit</label>
-            <textarea
-                class="form-control"
-                id="description"
-                name="description"
-                placeholder="Description du produit"
-            ></textarea>
-        </div>
-
-        <!-- Prix du produit -->
-        <div class="mb-3">
-            <label for="price" class="form-label">Prix du produit</label>
-            <input
-                type="number"
-                class="form-control"
-                id="price"
-                name="price"
-                placeholder="Prix du produit"
-                step="0.01"
-                required
-            />
-            <div class="invalid-feedback">Veuillez fournir un prix valide pour le produit.</div>
-        </div>
-
-        <!-- Quantité en stock -->
-        <div class="mb-3">
-            <label for="stock_quantity" class="form-label">Quantité en stock</label>
-            <input
-                type="number"
-                class="form-control"
-                id="stock_quantity"
-                name="stock_quantity"
-                placeholder="Quantité disponible"
-                required
-            />
-            <div class="invalid-feedback">Veuillez indiquer la quantité en stock.</div>
-        </div>
-
-        <!-- Image du produit -->
-        <div class="mb-3">
-            <label for="image" class="form-label">Image du produit</label>
-            <input
-                type="file"
-                class="form-control"
-                id="image"
-                name="image"
-                accept="image/*"
-            />
-        </div>
-
-        <!-- Catégorie du produit -->
-        <div class="mb-3">
-            <label for="category_id" class="form-label">Catégorie</label>
-            <select class="form-select" id="category_id" name="category_id" required>
-                <option value="">Sélectionnez une catégorie</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
-            <div class="invalid-feedback">Veuillez sélectionner une catégorie.</div>
-        </div>
-        <!-- Statut du produit -->
-        <div class="mb-3">
-            <label for="status" class="form-label">Statut</label>
-            <select class="form-select" id="status" name="status" required>
-                <option value="actif" selected>Actif</option>
-                <option value="inactif">Inactif</option>
-            </select>
-            <div class="invalid-feedback">Veuillez sélectionner un statut pour le produit.</div>
-        </div>
-    </div>
-    </div>
-    <!--end::Body-->
-    <!-- Footer -->
-    <div class="card-footer">
-        <button type="submit" class="btn btn-success">Ajouter</button>
-    </div>
-    
-</form>
-        <!--end::Form-->
-      </div>
-      <!--end::Col-->
-    </div>
-    <!--end::Row-->
-  </div>
-  <!--end::Container-->
-
-  <script>
-    // Form validation script
-    (() => {
-      'use strict';
-
-      const forms = document.querySelectorAll('.needs-validation');
-
-      Array.from(forms).forEach((form) => {
-        form.addEventListener(
-          'submit',
-          (event) => {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-
-            form.classList.add('was-validated');
-          },
-          false
-        );
-      });
-    })();
-  </script>
-</div>
-
         <!--end::App Content-->
-      </main>
+    </main>    
       <!--end::App Main-->
       <!--begin::Footer-->
       <footer class="app-footer">

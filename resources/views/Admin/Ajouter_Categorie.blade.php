@@ -247,6 +247,33 @@
           <!--end::End Navbar Links-->
         </div>
         <!--end::Container-->
+        @if (Route::has('login'))
+  <nav class="flex justify-end items-center space-x-4">
+    @auth
+      <a href="{{ url('/dashboard') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">
+      </a>
+      <a href="#" 
+         onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">
+        Logout
+      </a>
+      <form id="logout-form" method="POST" action="{{ route('logout') }}" class="hidden">
+        @csrf
+      </form>
+    @else
+      <div class="flex space-x-2">
+        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">
+          Log in
+        </a>
+        @if (Route::has('register'))
+          <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">
+            Register
+          </a>
+        @endif
+      </div>
+    @endauth
+  </nav>
+@endif
       </nav>
       <!--end::Header-->
       <!--begin::Sidebar-->
@@ -343,7 +370,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
-                    Cat
+                    Categories
                     <span class="nav-badge badge text-bg-secondary me-3">6</span>
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
@@ -352,15 +379,15 @@
                 <li class="nav-item">
                     <a href="{{ route('categories.create') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Categories</p>
+                      <p>Ajout Categories</p>
                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/fixed-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Sidebar</p>
-                    </a>
-                  </li>
+                    <li class="nav-item">
+                     <a href="{{ route('categories.show') }}" class="nav-link">
+                     <i class="nav-icon bi bi-circle"></i>
+                         <p>Afficher les Catégories</p>
+                       </a>
+                    </li>
+
                   <li class="nav-item">
                     <a href="../layout/layout-custom-area.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
