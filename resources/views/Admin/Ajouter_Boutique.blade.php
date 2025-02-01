@@ -3,10 +3,10 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>MarketPlace</title>
+    <title>Dokkana</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="AdminLTE 4 | General Form Elements" />
+    <meta name="title" content="AdminLTE 4 | Simple Tables" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
@@ -62,69 +62,11 @@
               </a>
             </li>
             <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+            
           </ul>
           <!--end::Start Navbar Links-->
           <!--begin::End Navbar Links-->
-          <ul class="navbar-nav ms-auto">
-            <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
-            <!--end::Navbar Search-->
-            
-            <!--begin::Fullscreen Toggle-->
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
-              </a>
-            </li>
-            <!--end::Fullscreen Toggle-->
-            <!--begin::User Menu Dropdown-->
-            <li class="nav-item dropdown user-menu">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                <img
-                  src="assets2/assets/img/user2-160x160.jpg"
-                  class="user-image rounded-circle shadow"
-                  alt="User Image"
-                />
-                <span class="d-none d-md-inline">Alexander Pierce</span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <!--begin::User Image-->
-                <li class="user-header text-bg-primary">
-                  <img
-                    src="assets2/assets/img/user2-160x160.jpg"
-                    class="rounded-circle shadow"
-                    alt="User Image"
-                  />
-                  <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2023</small>
-                  </p>
-                </li>
-                <!--end::User Image-->
-                <!--begin::Menu Body-->
-                <li class="user-body">
-                  <!--begin::Row-->
-                  <div class="row">
-                    <div class="col-4 text-center"><a href="#">Followers</a></div>
-                    <div class="col-4 text-center"><a href="#">Sales</a></div>
-                    <div class="col-4 text-center"><a href="#">Friends</a></div>
-                  </div>
-                  <!--end::Row-->
-                </li>
-                <!--end::Menu Body-->
-                <!--begin::Menu Footer-->
-                <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
-                </li>
-                <!--end::Menu Footer-->
-              </ul>
+          <ul class="navbar-nav ms-auto"> 
             </li>
             <!--end::User Menu Dropdown-->
           </ul>
@@ -164,25 +106,16 @@
       <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
-          <!--begin::Brand Link-->
-          <a href="../index.html" class="brand-link">
-            <!--begin::Brand Image-->
-            <img
-              src="assets2/assets/img/AdminLTELogo.png"
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
-            <!--end::Brand Image-->
             <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
+            <span class="brand-text fw-light">Dokkana</span>
             <!--end::Brand Text-->
-          </a>
+          
           <!--end::Brand Link-->
         </div>
         <!--end::Sidebar Brand-->
         <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
-          <nav class="mt-2">
+        <nav class="mt-2">
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
@@ -190,35 +123,6 @@
               role="menu"
               data-accordion="false"
             >
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-speedometer"></i>
-                  <p>
-                    Dashboard
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../index.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../index2.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../index3.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
@@ -254,7 +158,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
-                    Cat
+                    Categories
                     <span class="nav-badge badge text-bg-secondary me-3">6</span>
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
@@ -272,68 +176,26 @@
                          <p>Afficher les Catégories</p>
                        </a>
                     </li>
-                  <li class="nav-item">
-                    <a href="../layout/layout-custom-area.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout <small>+ Custom Area </small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/sidebar-mini.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/collapsed-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Collapsed</small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/logo-switch.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Logo Switch</small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/layout-rtl.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout RTL</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+                  </ul>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-tree-fill"></i>
                   <p>
-                    UI Elements
+                    Produits
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../UI/general.html" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{ route('affiche.produits') }}" class="nav-link active">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>General</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../UI/icons.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Icons</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../UI/timeline.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Timeline</p>
+                      <p>Affiche Produits</p>
                     </a>
                   </li>
                 </ul>
               </li>
-             
+                </ul>
+              </li>
             </ul>
             <!--end::Sidebar Menu-->
           </nav>
@@ -349,7 +211,7 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Ajout Boutique</h3></div>
+              <div class="col-sm-6 d-flex justify-content-center"><h3 class="mb-0">Ajout Boutique : </h3></div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -367,13 +229,11 @@
   <!--begin::Container-->
   <div class="container-fluid">
     <!--begin::Row-->
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center display-flex">
       <!--begin::Col-->
       <div class="col-md-8">
         <!--begin::Form-->
-        <form action="/Ajouter_Boutique"
-        method="POST"
-         class="needs-validation" novalidate>
+        <form action="/Ajouter_Boutique" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
          @csrf
           <div class="card card-success card-outline mb-4">
             <!--begin::Header-->
@@ -412,11 +272,11 @@
               <div class="mb-3">
                 <label for="logo" class="form-label">Logo de la boutique</label>
                 <input
-                  type="text"
+                  type="file"
                   class="form-control"
                   id="logo"
                   name="logo"
-                  placeholder="Chemin d'accès au logo "
+                  accept="image/*"
                 />
               </div>
 
@@ -500,7 +360,16 @@
     <!--end::Row-->
   </div>
   <!--end::Container-->
-
+  <script>
+    document.getElementById('logo').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            console.log('Selected file:', file);
+        } else {
+            console.log('No file selected');
+        }
+    });
+</script>
   <script>
     // Form validation script
     (() => {
