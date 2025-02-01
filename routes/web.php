@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Shop;
 use App\Models\Category;
 use App\Models\Product;
+use Cloudinary\Api\Upload\UploadApi;
+use Cloudinary\Configuration\Configuration;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,14 +30,21 @@ Route::put('/Modifier_Boutique/{id}', [ShopController::class, 'update'])->name('
 //Affiche sous forme de box
 Route::get('/Gerer_Boutique', [ShopController::class, 'index'])->name('gerer.boutique');
 
-//affiche produits
-Route::get('/boutique/{id}', [ShopController::class, 'showProducts'])->name('boutique.products');
 
 
 //CRUD Produit
 //Create
 Route::post('/Ajouter_Produit', [ShopController::class, 'storeProduct'])->name('products.store'); 
 Route::get('/Ajouter_Produit', [ShopController::class, 'create'])->name('products.create');
+//Read
+Route::get('/Affiche_Produit', [ShopController::class, 'read'])->name('affiche.produits');
+//Update
+Route::get('/Modifier_Produit/{id}', [ShopController::class, 'editProduct'])->name('products.edit');
+Route::put('/Modifier_Produit/{id}', [ShopController::class, 'updateProduct'])->name('products.update');
+//Delete
+Route::delete('/products/{id}', [ShopController::class, 'destroyProduct'])->name('products.destroy');
+//affiche produits
+Route::get('/boutique/{id}', [ShopController::class, 'showProducts'])->name('boutique.products');
 
 
 //CRUD Cat
