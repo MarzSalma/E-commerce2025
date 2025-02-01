@@ -208,174 +208,91 @@
       <!--end::Sidebar-->
       <!--begin::App Main-->
       <main class="app-main">
-        <!--begin::App Content Header-->
-        <div class="app-content-header">
-          <!--begin::Container-->
-          <div class="container-fluid">
+    <!--begin::App Content Header-->
+    <div class="app-content-header">
+        <!--begin::Container-->
+        <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6 d-flex justify-content-center"><h3 class="mb-0">Ajout Produit :</h3></div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Ajout Produit</li>
-                </ol>
-              </div>
+                <div class="col-sm-6"><h3 class="mb-0">Liste des Produits</h3></div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-end">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Liste des Produits</li>
+                    </ol>
+                </div>
             </div>
             <!--end::Row-->
-          </div>
-          <!--end::Container-->
         </div>
-        <!--end::App Content Header-->
-        <!--begin::App Content-->
-        <div class="app-content">
-  <!--begin::Container-->
-  <div class="container-fluid">
-    <!--begin::Row-->
-    <div class="row g-4 justify-content-center display-flex">
-      <!--begin::Col-->
-      <div class="col-md-8">
-        <!--begin::Form-->
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-    @csrf
-    <div class="card card-success card-outline mb-4">
-      <!--begin::Header-->
-      <div class="card-header">
-              <div class="card-title">Ajouter un produit</div>
+        <!--end::Container-->
+    </div>
+    <!--end::App Content Header-->
+
+    <!--begin::App Content-->
+    <div class="app-content">
+        <!--begin::Container-->
+        <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4 border">
+                        <div class="card-header"><h3 class="card-title">Liste des Produits</h3></div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">ID</th>
+                                        <th>Nom du Produit</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Prix</th>
+                                        <th>Stock</th>
+                                        <th>Statut</th>
+                                        <th>Catégorie</th>
+                                        <th>Boutique</th>
+                                        <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($products as $product)
+                                    <tr class="align-middle">
+                                        <td>{{ $loop->iteration }}.</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>{{ $product->description ?? 'N/A' }}</td>
+                                        <td>
+                                            <img src="{{ asset('storage/products/' . $product->image) }}" alt="Image du produit" style="max-width: 50px; max-height: 50px;">
+                                        </td>
+                                        <td>{{ $product->price }} TND</td>
+                                        <td>{{ $product->stock_quantity }}</td>
+                                        <td>
+                                            <span class="badge text-bg-{{ $product->status == 'actif' ? 'success' : 'danger' }}">
+                                                {{ ucfirst($product->status) }}
+                                            </span>
+                                        </td>
+                                        <td>{{ $product->category->name ?? 'N/A' }}</td> <!-- Catégorie du produit -->
+                                        <td>{{ $product->shop->name ?? 'N/A' }}</td> <!-- Boutique associée -->
+                                        <td> <!-- Colonne des actions -->
+                                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-success btn-sm">Modifier</a>
+
+                                            <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')">Supprimer</button>
+                                            </form>
+                                        </td> <!-- Fin de la colonne des actions -->
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div> <!-- /.card-body -->
+                    </div> <!-- /.card -->
+                </div>
             </div>
-            <!--end::Header-->
-             <!--begin::Body-->
-             <div class="card-body">
-        <!-- Nom du produit -->
-        <div class="mb-3">
-            <label for="name" class="form-label">Nom du produit</label>
-            <input
-                type="text"
-                class="form-control"
-                id="name"
-                name="name"
-                placeholder="Nom du produit"
-                required
-            />
-            <div class="invalid-feedback">Le nom du produit est obligatoire.</div>
-        </div>
-
-        <!-- Description du produit -->
-        <div class="mb-3">
-            <label for="description" class="form-label">Description du produit</label>
-            <textarea
-                class="form-control"
-                id="description"
-                name="description"
-                placeholder="Description du produit"
-            ></textarea>
-        </div>
-
-        <!-- Prix du produit -->
-        <div class="mb-3">
-            <label for="price" class="form-label">Prix du produit</label>
-            <input
-                type="number"
-                class="form-control"
-                id="price"
-                name="price"
-                placeholder="Prix du produit"
-                step="0.01"
-                required
-            />
-            <div class="invalid-feedback">Veuillez fournir un prix valide pour le produit.</div>
-        </div>
-
-        <!-- Quantité en stock -->
-        <div class="mb-3">
-            <label for="stock_quantity" class="form-label">Quantité en stock</label>
-            <input
-                type="number"
-                class="form-control"
-                id="stock_quantity"
-                name="stock_quantity"
-                placeholder="Quantité disponible"
-                required
-            />
-            <div class="invalid-feedback">Veuillez indiquer la quantité en stock.</div>
-        </div>
-
-        <!-- Image du produit -->
-        <div class="mb-3">
-            <label for="image" class="form-label">Image du produit</label>
-            <input
-                type="file"
-                class="form-control"
-                id="image"
-                name="image"
-                accept="image/*"
-            />
-        </div>
-
-        <!-- Catégorie du produit -->
-        <div class="mb-3">
-            <label for="category_id" class="form-label">Catégorie</label>
-            <select class="form-select" id="category_id" name="category_id" required>
-                <option value="">Sélectionnez une catégorie</option>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
-            <div class="invalid-feedback">Veuillez sélectionner une catégorie.</div>
-        </div>
-        <!-- Statut du produit -->
-        <div class="mb-3">
-            <label for="status" class="form-label">Statut</label>
-            <select class="form-select" id="status" name="status" required>
-                <option value="actif" selected>Actif</option>
-                <option value="inactif">Inactif</option>
-            </select>
-            <div class="invalid-feedback">Veuillez sélectionner un statut pour le produit.</div>
-        </div>
-    </div>
-    </div>
-    <!--end::Body-->
-    <!-- Footer -->
-    <div class="card-footer">
-        <button type="submit" class="btn btn-success">Ajouter</button>
-    </div>
-    
-</form>
-        <!--end::Form-->
-      </div>
-      <!--end::Col-->
-    </div>
-    <!--end::Row-->
-  </div>
-  <!--end::Container-->
-
-  <script>
-    // Form validation script
-    (() => {
-      'use strict';
-
-      const forms = document.querySelectorAll('.needs-validation');
-
-      Array.from(forms).forEach((form) => {
-        form.addEventListener(
-          'submit',
-          (event) => {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-
-            form.classList.add('was-validated');
-          },
-          false
-        );
-      });
-    })();
-  </script>
-</div>
-
-        <!--end::App Content-->
-      </main>
+        </div> <!-- /.container-fluid -->
+    </div> <!-- /.app-content -->
+</main>
+   
       <!--end::App Main-->
       <!--begin::Footer-->
       <footer class="app-footer">
