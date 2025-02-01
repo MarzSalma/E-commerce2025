@@ -512,7 +512,12 @@
               <td>{{ $shop->name }}</td>
               <td>{{ $shop->description ?? 'N/A' }}</td>
               <td>
-                <img src="{{ asset('storage/logos/' . $shop->logo) }}" alt="Logo de la boutique" style="max-width: 50px; max-height: 50px;">
+                @if($shop->logo)
+                  <img src="{{ asset('storage/' . $shop->logo) }}" alt="Logo de la boutique" style="max-width: 50px; max-height: 50px;">
+                @else
+                  N/A
+                @endif
+  
               </td>
               <td>{{ $shop->address }}</td>
               <td>{{ $shop->email }}</td>
